@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find_my_job</title>
+    <link rel="stylesheet" href="{%static 'css/hr_seeker.css'%}" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Find Your Job</div>
+      <div class="goback">
+        <div class="goback-logo">
+          <img
+            src="https://img.icons8.com/material-outlined/24/FFFFFF/double-left.png"
+          />
+        </div>
+        <div class="goback-text">
+          <a href="homepage">Go back</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="profile">
+        <div class="recruiter">
+          <p>
+            <a href="#"><b>Want to find someone?</b></a>
+          </p>
+        </div>
+        <div class="seeker">
+          <p>
+            <a href="seeker">Want to find new job?</a>
+          </p>
+        </div>
+      </div>
+      <div class="form_detail">
+        <form class="form" method="POST" action="{% url 'giver' lgin %}">
+          {% csrf_token %}
+          <p>Your Username</p>
+          {{form.username}}
+          <p>Your Name</p>
+          {{form.personal_name}}
+          <!--<input class="inputs" type="text" placeholder="Name"><br>-->
+          <p>Company's Name</p>
+          {{form.company_name}}
+          <!--<input class="inputs" type="text" placeholder="Company's Name"><br>-->
+          <p>Email</p>
+          {{form.email}}
+          <!--<input class="inputs" type="email" name="" id="" placeholder="Professional Email"><br>-->
+          <p>City</p>
+          {{form.company_city}}
+          <!--<input class="inputs" type="text" placeholder="Workplace city"><br>-->
+          <p>Post</p>
+          {{form.post}}
+          <!--<input class="inputs" type="text" placeholder="Designation"><br>-->
+          <input type="submit" value="submit" class="submit" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

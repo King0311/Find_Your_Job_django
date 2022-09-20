@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I am the King</title>
+    <link rel="stylesheet" href="{% static 'css/job_giver.css' %}" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">Find Your Job</div>
+        <div class="goback">
+            <div class="goback-logo">
+                <img src="https://img.icons8.com/material-outlined/24/FFFFFF/double-left.png" />
+            </div>
+            <div class="goback-text">
+                <a href="/">Go back</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="left">
+            <div class="details">
+                <div class="name">
+                    <article>Your Name:-</article>
+                    <p>{{hr.personal_name}}</p>
+                </div>
+                <div class="email">
+                    <article>Company Name</article>
+                    <p>{{hr.company_name}}</p>
+                </div>
+                <div class="pro">
+                    <article>Email</article>
+                    <p>{{hr.email}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            {% for job in jobs %} 
+            {% if job.username == fk %}
+            <div class="block1">
+                <div class="part1">
+                    <p>{{job.post}}</p>
+                </div>
+                <div class="part2">
+                    <p>Check Applications</p>
+                    <p>Delete</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+</body>
+
+</html>

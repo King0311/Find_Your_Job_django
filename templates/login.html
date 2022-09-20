@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Up</title>
+    <link rel="stylesheet" href="{%static '/css/signup.css'%}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Find Your Job</div>
+      <div class="goback">
+        <div class="goback-logo">
+          <img
+            src="https://img.icons8.com/material-outlined/24/FFFFFF/double-left.png"
+          />
+        </div>
+        <div class="goback-text">
+          <a href="homepage">Go back</a>
+        </div>
+      </div>
+    </header>
+    {%for message in messages%}
+    <h4 style="color: red; text-align: center">{{message}}</h4>
+    {%endfor%}
+    <main>
+      <form class="form" method="POST">
+        {% csrf_token %}
+        <p>Username</p>
+        <input
+          class="inputs"
+          type="text"
+          name="username"
+          id=""
+          placeholder="Enter your username"
+        /><br />
+        <p>Password</p>
+        <input
+          class="inputs"
+          type="password"
+          name="password"
+          placeholder="Re-Enter the password"
+        /><br />
+        <input class="submit" type="submit" value="Login" /><br />
+        <a href="signup">Do Not Have an account?</a>
+      </form>
+    </main>
+  </body>
+</html>
